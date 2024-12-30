@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/scrollreveal/4.0.9/scrollreveal.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #4b79a1);
+            background-size: 400% 400%;
+            animation: gradientAnimation 10s ease infinite;
+            color: #fff;
+            overflow-x: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+    
+        @keyframes gradientAnimation {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+    
+        .container {
+            text-align: center;
+            padding: 50px 20px;
+        }
+    
+        .title {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+    
+        .photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 20px auto;
+            overflow: hidden;
+            border: 5px solid #fff;
+        }
+    
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    
+        .about {
+            margin-top: 30px;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+    
+        .skills {
+            margin-top: 40px;
+            font-size: 1.2em;
+            line-height: 1.5;
+        }
+    
+        .skills ul {
+            list-style-type: none;
+            padding: 0;
+        }
+    
+        .skills ul li {
+            padding: 5px 0;
+        }
+    
+        .experience {
+            margin-top: 40px;
+            font-size: 1.2em;
+            line-height: 1.5;
+            background: linear-gradient(45deg, #1e3c72, #2a5298, #4b79a1);
+            padding: 20px;
+            border-radius: 10px;
+        }
+    
+        .project {
+            display: inline-block;
+            margin: 15px;
+            text-align: center;
+            border: 2px solid #fff;
+            border-radius: 10px;
+            padding: 10px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+    
+        .project:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+    
+        .projects h3 {
+            font-size: 1.8em;
+            margin-bottom: 20px;
+        }
+    
+        .project img {
+            width: 100px;
+            height: 100px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        button {
+            background-color: #f39c12; 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #f39c12;
+        }
+
+        button:active {
+            background-color: #e67e22;
+        }
+
+        .social {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+    
+        .social a {
+            color: #fff;
+            font-size: 1.5em;
+            transition: transform 0.3s, color 0.3s;
+        }
+    
+        .social a:hover {
+            transform: scale(1.2);
+            color: #f39c12;
+        }
+    
+        .contact-form {
+            margin-top: 40px;
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: #ffffff;
+            padding: 10px;
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+    
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #000000;
+            border-radius: 4px;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+            min-height: 100px;  
+        }
+    
+        .contact-form button {
+            background: #f39c12;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .contact-form button:hover {
+            background: #e67e22;
+        }
+    
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #f39c12;
+            color: #fff;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+    
+        #backToTop:hover {
+            transform: scale(1.2);
+        }
+    </style>  
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Bem-vindo ao Meu Perfil</h1>
+        <div class="photo">
+            <img src="perfil.png" alt="Minha Foto">
+        </div>
+        <p class="about">Olá! Eu sou um desenvolvedor apaixonado por criar experiências web incríveis. Este é um exemplo de um site de perfil com animações para destacar suas informações. Adoro resolver problemas e implementar soluções inovadoras.</p>
+
+        <!-- Seção de Habilidades -->
+        <div class="skills">
+            <h3>Minhas Habilidades</h3>
+            <ul>
+                <li><i class="fas fa-code"></i><strong>HTML5</strong> - Estruturação de páginas web com semântica e acessibilidade.</li>
+                <li><i class="fas fa-paint-brush"></i><strong>CSS3</strong> - Design responsivo e animações avançadas.</li>
+                <li><i class="fas fa-cogs"></i><strong>JavaScript</strong> - Dinamismo e interatividade para sites modernos.</li>
+                <li><i class="fas fa-server"></i><strong>Node.js</strong> - Desenvolvimento de back-end e servidores escaláveis.</li>
+                <li><i class="fas fa-cogs"></i><strong>React.js</strong> - Framework para interfaces interativas e rápidas.</li>
+                <li><i class="fas fa-code-branch"></i><strong>Git</strong> - Controle de versões e colaboração em projetos.</li>
+            </ul>
+        </div>
+
+        <!-- Seção de Experiência -->
+        <div class="experience">
+        <h3>Minha Experiência</h3>
+            <p><i class="fas fa-briefcase"></i><strong>Desenvolvedor Web na XYZ Corp</strong> (2020 - Presente): Desenvolvo e mantenho aplicações web usando as últimas tecnologias, com foco em performance e experiência do usuário.</p>
+            <p><i class="fas fa-laptop-code"></i><strong>Desenvolvedor Front-end Freelancer</strong> (2018 - 2020): Trabalhei com diversos clientes criando sites dinâmicos e responsivos.</p>
+            <p><i class="fas fa-user-tie"></i><strong>Estágio em Desenvolvimento de Software</strong> (2017 - 2018): Aprendi e apliquei conceitos de programação e desenvolvimento de software em uma empresa de tecnologia.</p>
+        </div>
+
+        <!-- Seção de Projetos -->
+        <div class="projects">
+            <h3>Meus Projetos</h3>
+            <div class="project">
+                <img src="servidordiscord.png" alt="Servidor Discord">
+                <p>Servidor Discord</p>
+                <a href="https://discord.gg/seulink" target="_blank">
+                    <button>Visitar</button>
+                </a>
+            </div>
+            <div class="project">
+                <img src="servidorbot.png" alt="Bot Discord">
+                <p>Bot Discord</p>
+                <a href="https://seulink.com" target="_blank">
+                    <button>Visitar</button>
+                </a>
+            </div>
+        </div>
+
+        <div class="social">
+            <a href="https://discord.gg/seulink" target="_blank"><i class="fab fa-discord"></i></a>
+            <a href="https://github.com/usuario" target="_blank"><i class="fab fa-github"></i></a>
+        </div>
+        
+        <div class="contact-form">
+            <h3>Entre em Contato</h3>
+            <form id="contato-form">
+                <input type="text" id="nome" placeholder="Seu nome" required>
+                <input type="email" id="email" placeholder="Seu email" required>
+                <input type="text" id="discord" placeholder="Seu Discord" required>
+                <textarea id="mensagem" placeholder="Sua mensagem" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>            
+        </div>
+    </div>
+
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">&uarr;</button>
+
+    <script>
+        // ScrollReveal animations
+        ScrollReveal().reveal('.title', { duration: 1000, origin: 'top', distance: '50px' });
+        ScrollReveal().reveal('.photo', { duration: 1000, delay: 500, origin: 'bottom', distance: '50px' });
+        ScrollReveal().reveal('.about', { duration: 1000, delay: 1000, origin: 'left', distance: '50px' });
+        ScrollReveal().reveal('.skills', { duration: 1000, delay: 1500, origin: 'right', distance: '50px' });
+        ScrollReveal().reveal('.experience', { duration: 1000, delay: 2000, origin: 'left', distance: '50px' });
+        ScrollReveal().reveal('.social', { duration: 1000, delay: 2500, origin: 'right', distance: '50px' });
+    
+        // GSAP animations for smooth transitions
+        gsap.from(".container", { opacity: 0, duration: 1, y: -50 });
+    
+        // Show/hide back-to-top button
+        window.onscroll = function() {
+            const backToTopButton = document.getElementById("backToTop");
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                backToTopButton.style.display = "block";
+            } else {
+                backToTopButton.style.display = "none";
+            }
+        };
+    </script>
+   <script>
+    document.getElementById('contato-form').addEventListener('submit', async function(event) {
+        event.preventDefault(); // Impede o comportamento padrão do formulário
+
+        // Captura os dados do formulário
+        const nome = document.getElementById('nome').value;
+        const email = document.getElementById('email').value;
+        const discord = document.getElementById('discord').value;
+        const mensagem = document.getElementById('mensagem').value;
+
+        // URL da Webhook do Discord
+        const webhookURL = 'https://discord.com/api/webhooks/SEU-WEBHOOK';
+
+        // Formata a mensagem como uma embed com emojis
+        const embedData = {
+            username: 'Contato do Site',
+            avatar_url: 'https://example.com/avatar.png', // URL de um ícone para o avatar
+            embeds: [
+                {
+                    title: 'Nova Mensagem de Contato 📩',
+                    color: 65280, // Cor em formato decimal (verde)
+                    fields: [
+                        { name: 'Nome ✨', value: nome, inline: true },
+                        { name: 'Email 📧', value: email, inline: true },
+                        { name: 'Discord 🎮', value: discord, inline: true },
+                        { name: 'Mensagem 📝', value: mensagem }
+                    ],
+                    footer: {
+                        text: 'Mensagem enviada pelo formulário de contato 💬',
+                        icon_url: 'https://example.com/footer-icon.png' // URL para um ícone no rodapé
+                    },
+                    timestamp: new Date().toISOString()
+                }
+            ]
+        };
+
+        try {
+            // Envia a mensagem para a webhook
+            const response = await fetch(webhookURL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(embedData)
+            });
+
+            if (response.ok) {
+                alert('Mensagem enviada com sucesso! 🎉');
+                document.getElementById('contato-form').reset(); // Reseta o formulário
+            } else {
+                alert('Erro ao enviar mensagem. Tente novamente mais tarde. 🚫');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar para a webhook:', error);
+            alert('Erro ao enviar mensagem. Tente novamente mais tarde. 🚫');
+        }
+    });
+</script>  
+</body>
+</html>
